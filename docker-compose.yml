@@ -6,10 +6,8 @@ services:
       - db
     environment:
       PRETTY_URLS: "1"
-      HTTPS: "1"
-      HTTPS_REDIRECT: "1"
-      LANG: "en-US"
-      BASE_URL: "https://webtrees.example.com"
+      LANG: "en-GB"
+      BASE_URL: "http://127.0.0.1"
       DB_TYPE: "mysql"
       DB_HOST: "db"
       DB_PORT: "3306"
@@ -17,20 +15,19 @@ services:
       DB_PASS: "badpassword"
       DB_NAME: "webtrees"
       DB_PREFIX: "wt_"
-      WT_USER: "username"
-      WT_NAME: "Full Name"
-      WT_PASS: "mybadpassword"
-      WT_EMAIL: "me@example.com"
+      WT_USER_FILE: ./env/user
+      WT_NAME_FILE: ./env/name
+      WT_PASS_FILE: ./env/password
+      WT_EMAIL_FILE: ./env/email
     image: ghcr.io/nathanvaughn/webtrees:latest
     #build: .
     ports:
       - 80:80
-      - 443:443
     restart: unless-stopped
     volumes:
-      - ~/certs:/certs/
-      - app_data:/var/www/webtrees/data/
-      - app_media:/var/www/webtrees/media/
+      - ./app/data:/var/www/webtrees/data
+      - ./app/media:/var/www/webtrees/media
+      - ./modules/modules_v4:/var/www/webtrees/modules_v4
 
   db:
     command: "--default-authentication-plugin=mysql_native_password"
@@ -43,11 +40,10 @@ services:
     restart: unless-stopped
     volumes:
       - db_data:/var/lib/mysql
+    ports:
+      - 33306:3306
 
 volumes:
   db_data:
     driver: local
-  app_data:
-    driver: local
-  app_media:
-    driver: local
+  
