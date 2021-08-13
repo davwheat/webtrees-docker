@@ -1,4 +1,4 @@
-# Customised Docker Image for [webtrees](https://webtrees.net/)
+# Customised Docker Image for [webtrees](https://webtrees.net/) <!-- omit in toc -->
 
 This is a multi-architecture, up-to-date, Docker image for
 [webtrees](https://github.com/fisharebest/webtrees) served over HTTP or HTTPS.
@@ -13,7 +13,46 @@ This image has been customised for my own personal usage:
   - After cloning, run `git submodule update --init --recursive --remote` to pull the latest version of the modules
   - To add a new module, enter `modules/modules_v4` and run `git submodule add <repo URL>`
 
+## Contents <!-- omit in toc -->
+
+- [Usage](#usage)
+  - [Start-up](#start-up)
+    - [Start docker containers](#start-docker-containers)
+  - [Environment Variables](#environment-variables)
+  - [Database](#database)
+    - [SQLite Values](#sqlite-values)
+    - [PostgreSQL Values](#postgresql-values)
+  - [Network](#network)
+  - [ImageMagick](#imagemagick)
+- [Tags](#tags)
+  - [Specific Versions](#specific-versions)
+  - [Latest](#latest)
+- [Troubleshooting](#troubleshooting)
+- [Issues](#issues)
+- [Reverse Proxy Issues](#reverse-proxy-issues)
+- [Registry](#registry)
+- [Inspiration](#inspiration)
+
 ## Usage
+
+### Start-up
+
+**Ensure you have your configuration variables set up correctly before performing these steps.**
+
+By default, the admin user account puls details from the `env` folder. Please ensure that you change
+this, or create the needed files:
+
+- `env/user` (username)
+- `env/email` (email)
+- `env/name` (full name)
+- `env/password` (password - not created by default, but required)
+
+#### Start docker containers
+
+1. Run `docker-compose up`
+2. That's it! Head to [127.0.0.1](http://127.0.0.1/) to start!
+
+Something not working right? Check out the [troubleshooting](#troubleshooting) section.
 
 ### Environment Variables
 
@@ -139,6 +178,15 @@ Example:
 ```yml
 image: ghcr.io/nathanvaughn/webtrees:latest-legacy
 ```
+
+## Troubleshooting
+
+> **Error response from daemon: OCI runtime create failed: (...) mounting (...) to rootfs at "/var/www/webtrees/modules_v4" caused: mount through procfd: no such file or directory: unknown**
+>
+> This can sometimes be caused due to changes to the `modules_v4` directory. You need to remove the volume and recreate the docker container(s). You won't lose any data.
+>
+> 1. `docker volume rm webtrees-docker_app_themes`
+> 2. `docker-compose up --force-recreate`
 
 ## Issues
 
