@@ -1,28 +1,29 @@
-# Docker Image for [webtrees](https://webtrees.net/)
-
-[![](https://github.com/NathanVaughn/webtrees-docker/workflows/Check%20and%20Push%20Updates/badge.svg)](https://github.com/NathanVaughn/webtrees-docker)
-[![](https://img.shields.io/docker/v/nathanvaughn/webtrees)](https://hub.docker.com/r/nathanvaughn/webtrees)
-[![](https://img.shields.io/docker/image-size/nathanvaughn/webtrees)](https://hub.docker.com/r/nathanvaughn/webtrees)
-[![](https://img.shields.io/docker/pulls/nathanvaughn/webtrees)](https://hub.docker.com/r/nathanvaughn/webtrees)
-[![](https://img.shields.io/github/license/nathanvaughn/webtrees-docker)](https://github.com/NathanVaughn/webtrees-docker)
+# Customised Docker Image for [webtrees](https://webtrees.net/)
 
 This is a multi-architecture, up-to-date, Docker image for
 [webtrees](https://github.com/fisharebest/webtrees) served over HTTP or HTTPS.
 This can be put behind a reverse proxy such as CloudFlare or Traefik, or
 run standalone.
 
+This image has been customised for my own personal usage:
+
+- `app/data` and `app/media` folders are now linked to the local filesystem
+- `modules_v4` is linked to the `modules/modules_v4` folder
+- A selection of modules are made readily available via Git Submodules
+  - After cloning, run `git submodule update --init --recursive --remote` to pull the latest version of the modules
+  - To add a new module, enter `modules/modules_v4` and run `git submodule add <repo URL>`
+
 ## Usage
-
-### Quickstart
-
-If you want to jump right in, take a look at the provided
-[docker-compose.yml](https://github.com/NathanVaughn/webtrees-docker/blob/master/docker-compose.yml).
 
 ### Environment Variables
 
 There are many environment variables available to help automatically configure
 the container. For any environment variable you do not define,
 the default value will be used.
+
+**_To disable settings such as HTTPS, ensure they are COMPLETELY removed from
+the env settings in `docker-compose.yml`. Setting them to `'0'` or `'false'`
+will not work due to the primitive nature of the set-up script._**
 
 > **🚨 WARNING 🚨**
 > These environment variables will be visible in the webtrees control panel
@@ -64,8 +65,8 @@ webtrees [recommends](https://webtrees.net/install/requirements/)
 a MySQL (or compatible equivalent) database.
 You will need a separate container for this.
 
--   [MariaDB](https://hub.docker.com/_/mariadb)
--   [MySQL](https://hub.docker.com/_/mysql)
+- [MariaDB](https://hub.docker.com/_/mariadb)
+- [MySQL](https://hub.docker.com/_/mysql)
 
 PostgreSQL and SQLite are additionally both supported by webtrees and this image, but
 are not recommended. This image does not support Microsoft SQL Server, in order
@@ -76,65 +77,17 @@ to support multiple architectures. See issue:
 
 If you want to use a SQLite database, set the following values:
 
--   `DB_TYPE` to `sqlite`
--   `DB_NAME` to `desiredfilename`. Do not include any extension.
+- `DB_TYPE` to `sqlite`
+- `DB_NAME` to `desiredfilename`. Do not include any extension.
 
 #### PostgreSQL Values
 
 If you want to use a PostreSQL database, set the following values:
 
--   `DB_TYPE` to `pgsql`
--   `DB_PORT` to `5432`
+- `DB_TYPE` to `pgsql`
+- `DB_PORT` to `5432`
 
 All other values are just like a MySQL database.
-
-### Volumes
-
-The image mounts:
-
--   `/var/www/webtrees/data/`
--   `/var/www/webtrees/media/`
-
-If you want to add custom [themes or modules](https://webtrees.net/download/modules),
-you can also mount the `/var/www/webtrees/modules_v4/` directory.
-
-Example `docker-compose`:
-
-```yml
-volumes:
-  - app_data:/var/www/webtrees/data/
-  - app_media:/var/www/webtrees/media/
-  - app_themes:/var/www/webtrees/modules_v4/
----
-volumes:
-  app_data:
-    driver: local
-  app_media:
-    driver: local
-  app_themes:
-    driver: local
-```
-
-See the link above for information about v1.7 webtrees.
-
-To install a custom theme or module, the process is generally as follows:
-
-```bash
-docker exec -it webtrees_app_1 bash   # connect to the running container
-cd /var/www/webtrees/modules_v4/      # move into the modules directory
-curl -L <download url> -o <filename>  # download the file
-
-# if module is a .tar.gz file
-tar -xf <filename.tar.gz>             # extract the tar archive https://xkcd.com/1168/
-rm <filename.tar.gz>                  # remove the tar archive
-
-# if module is a .zip file
-apt update && apt install unzip       # install the unzip package
-unzip <filename.zip>                  # extract the zip file
-rm <filename.zip>                     # remove the zip file
-
-exit                                  # disconnect from the container
-```
 
 ### Network
 
@@ -219,9 +172,9 @@ For more info, see [this](https://webtrees.net/admin/proxy/).
 
 This image is available from 3 different registries. Choose whichever you want:
 
- - [docker.io/nathanvaughn/webtrees](https://hub.docker.com/r/nathanvaughn/webtrees)
- - [ghcr.io/nathanvaughn/webtrees](https://github.com/users/nathanvaughn/packages/container/package/webtrees)
- - [cr.nthnv.me/webtrees](https://cr.nthnv.me/repository/library/webtrees) (experimental)
+- [docker.io/nathanvaughn/webtrees](https://hub.docker.com/r/nathanvaughn/webtrees)
+- [ghcr.io/nathanvaughn/webtrees](https://github.com/users/nathanvaughn/packages/container/package/webtrees)
+- [cr.nthnv.me/webtrees](https://cr.nthnv.me/repository/library/webtrees) (experimental)
 
 ## Inspiration
 
