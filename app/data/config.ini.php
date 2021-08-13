@@ -1,0 +1,10 @@
+; <?php return; ?> DO NOT DELETE THIS LINE
+dbtype="mysql"
+dbhost="db"
+dbport="3306"
+dbuser="webtrees"
+dbpass="badpassword"
+dbname="webtrees"
+tblpfx="wt_"
+base_url="http://127.0.0.1"
+rewrite_urls="1"
