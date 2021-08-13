@@ -1,0 +1,27 @@
+[submodule "modules/modules_v4/hh_extended_family"]
+	path = modules/modules_v4/hh_extended_family
+	url = https://github.com/hartenthaler/hh_extended_family
+[submodule "modules/modules_v4/vesta_extended_relationships"]
+	path = modules/modules_v4/vesta_extended_relationships
+	url = https://github.com/vesta-webtrees-2-custom-modules/vesta_extended_relationships
+[submodule "modules/modules_v4/webtrees-fancy-research-links"]
+	path = modules/modules_v4/webtrees-fancy-research-links
+	url = https://github.com/JustCarmen/webtrees-fancy-research-links
+[submodule "modules/modules_v4/vesta_gov4webtrees"]
+	path = modules/modules_v4/vesta_gov4webtrees
+	url = https://github.com/vesta-webtrees-2-custom-modules/vesta_gov4webtrees
+[submodule "modules/modules_v4/webtrees-theme-justlight"]
+	path = modules/modules_v4/webtrees-theme-justlight
+	url = https://github.com/JustCarmen/webtrees-theme-justlight
+[submodule "modules/modules_v4/webtrees-descendants-chart"]
+	path = modules/modules_v4/webtrees-descendants-chart
+	url = https://github.com/magicsunday/webtrees-descendants-chart
+[submodule "modules/vesta_common"]
+	path = modules/vesta_common
+	url = https://github.com/vesta-webtrees-2-custom-modules/vesta_common
+[submodule "modules/topola-webtrees"]
+	path = modules/topola-webtrees
+	url = https://github.com/PeWu/topola-webtrees
+[submodule "modules/webtrees-tree_view_full_screen"]
+	path = modules/webtrees-tree_view_full_screen
+	url = https://github.com/UksusoFF/webtrees-tree_view_full_screen
