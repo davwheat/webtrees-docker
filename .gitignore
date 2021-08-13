@@ -1,2 +1,4 @@
 vendor/
 /env/password
+
+/app/data/cache
