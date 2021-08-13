@@ -16,12 +16,45 @@
 [submodule "modules/modules_v4/webtrees-descendants-chart"]
 	path = modules/modules_v4/webtrees-descendants-chart
 	url = https://github.com/magicsunday/webtrees-descendants-chart
-[submodule "modules/vesta_common"]
-	path = modules/vesta_common
+[submodule "modules/modules_v4/vesta_common"]
+	path = modules/modules_v4/vesta_common
 	url = https://github.com/vesta-webtrees-2-custom-modules/vesta_common
-[submodule "modules/topola-webtrees"]
-	path = modules/topola-webtrees
+[submodule "modules/modules_v4/topola-webtrees"]
+	path = modules/modules_v4/topola-webtrees
 	url = https://github.com/PeWu/topola-webtrees
-[submodule "modules/webtrees-tree_view_full_screen"]
-	path = modules/webtrees-tree_view_full_screen
+[submodule "modules/modules_v4/webtrees-tree_view_full_screen"]
+	path = modules/modules_v4/webtrees-tree_view_full_screen
 	url = https://github.com/UksusoFF/webtrees-tree_view_full_screen
+[submodule "modules/modules_v4/vesta_common"]
+	path = modules/modules_v4/vesta_common
+	url = https://github.com/vesta-webtrees-2-custom-modules/vesta_common
+[submodule "modules/modules_v4/vesta_classic_laf"]
+	path = modules/modules_v4/vesta_classic_laf
+	url = https://github.com/vesta-webtrees-2-custom-modules/vesta_classic_laf
+[submodule "modules/modules_v4/vesta_relatives"]
+	path = modules/modules_v4/vesta_relatives
+	url = https://github.com/vesta-webtrees-2-custom-modules/vesta_relatives
+[submodule "modules/modules_v4/vesta_clippings_cart"]
+	path = modules/modules_v4/vesta_clippings_cart
+	url = https://github.com/vesta-webtrees-2-custom-modules/vesta_clippings_cart
+[submodule "modules/modules_v4/vesta_location_data"]
+	path = modules/modules_v4/vesta_location_data
+	url = https://github.com/vesta-webtrees-2-custom-modules/vesta_location_data
+[submodule "modules/modules_v4/vesta_personal_facts"]
+	path = modules/modules_v4/vesta_personal_facts
+	url = https://github.com/vesta-webtrees-2-custom-modules/vesta_personal_facts
+[submodule "modules/modules_v4/vesta_places_and_pedigree_map"]
+	path = modules/modules_v4/vesta_places_and_pedigree_map
+	url = https://github.com/vesta-webtrees-2-custom-modules/vesta_places_and_pedigree_map
+[submodule "modules/modules_v4/vesta_research_suggestions"]
+	path = modules/modules_v4/vesta_research_suggestions
+	url = https://github.com/vesta-webtrees-2-custom-modules/vesta_research_suggestions
+[submodule "modules/modules_v4/vesta_shared_places"]
+	path = modules/modules_v4/vesta_shared_places
+	url = https://github.com/vesta-webtrees-2-custom-modules/vesta_shared_places
+[submodule "modules/modules_v4/webtrees-fan-chart"]
+	path = modules/modules_v4/webtrees-fan-chart
+	url = https://github.com/magicsunday/webtrees-fan-chart
+[submodule "modules/modules_v4/webtrees-pedigree-chart"]
+	path = modules/modules_v4/webtrees-pedigree-chart
+	url = https://github.com/magicsunday/webtrees-pedigree-chart
